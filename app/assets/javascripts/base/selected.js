@@ -208,7 +208,7 @@ app.directive('uniqueNamespace',['$http', function($http) {
                   ctrl.$setValidity('uniqueNamespace', false);
                 else
                   ctrl.$setValidity('uniqueNamespace', true);
-            }).failure(function(data) { return false; });
+            }).failure(function() { scope.looking = false; ctrl.$setValidity('uniqueNamespace', false); return false; });
           }
         }, 500);
       })
