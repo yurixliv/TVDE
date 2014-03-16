@@ -12,7 +12,6 @@ class School < ActiveRecord::Base
   # instance methods
 
   def send_emails
-    # debugger
     if has_token? && confirmed?
       SchoolMailer.send_headmaster_email(self).deliver
       SchoolMailer.send_technical_manager_email(self).deliver
@@ -26,7 +25,6 @@ class School < ActiveRecord::Base
   private
 
   def add_token_for_pre_selected_schools
-    # debugger
     if dont_need_to_evaluate? && !has_token?
       begin
         self.token = SecureRandom.hex[0,9].upcase
@@ -35,7 +33,6 @@ class School < ActiveRecord::Base
   end
 
   def set_confirmed
-    # debugger
     self.confirmed_at = Time.now if has_token? && !confirmed?
   end
 
