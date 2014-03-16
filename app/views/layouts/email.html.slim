@@ -1,0 +1,157 @@
+html
+  / css:
+  /   .body {
+  /     background-color: #5EC152;
+  /     min-width: 100%;
+  /   }
+  /   .logo_container {
+  /     background: #3E3C7F;
+  /     height: 165;
+  /     min-width: 100%;
+  /     display: block;
+  /   }
+  /   .header {
+  /     text-align: center
+  /   }
+  /   .header h1 {
+  /     font-family: 'pn_bold';
+  /     font-size: 33px;
+  /     color: white;
+  /     margin: 97px auto 67px;
+  /   }
+  /   .header p {
+  /     font-family: 'pn_semibold';
+  /     font-size: 14px;
+  /     color: #275722;
+  /     text-align: center;
+  /   }
+  /   hr {
+  /     border-color: white;
+  /   }
+    / .blue-box {
+    /   border: 1px solid #0073c6;
+    /   border-radius: 10px;
+    /   overflow: auto;
+    /   margin: 0 auto;
+    /   width: 90%;
+    / }
+
+    / .blue-box .title-box {
+    /   background: #0073c6;
+    /   overflow: hidden;
+    /   width: 100%;
+    /   height: 80px;
+    /   border-radius: 5px 5px 0 0;
+    / }
+
+    / .blue-box .title-box .logo {
+    /   float: left;
+    /   width: 200px;
+    /   position: relative;
+    /   top: -4px;
+    /   left: 10px;
+    / }
+
+    / .blue-box .title-box h1 {
+    /   text-indent: -200px;
+    /   margin: 0;
+    /   font-weight: 500;
+    /   font-family: 'pn_regular', Arial, sans-serif;
+    /   font-size: 40px;
+    /   line-height: 80px;
+    /   text-align: center;
+    /   color: #fff;
+    /   text-shadow: 1px 4px 1px rgba(34, 34, 34, 0.0);
+    / }
+
+    / .blue-box .body {
+    /   padding: 20px;
+    / }
+
+    / .blue-box .body .logo {
+    /   position: relative;
+    /   top: -105px;
+    /   left: -15px;
+    / }
+
+    / .blue-box .body .content {
+    /   position: relative;
+    /   top: -90px;
+    / }
+
+    / .blue-box .body .logo img {
+    /   text-align: center;
+    / }
+
+    / .blue-box .body p {
+    /   font-family: 'pn_regular', Arial, sans-serif;
+    /   font-size: 20px;
+    /   margin-bottom: -1px;
+    /   color: #222;
+    /   line-height: 28px;
+    / }
+
+    / .blue-box .body p .gray {
+    /   color: #666
+    / }
+
+    / .blue-box .body p.small {
+    /   font-size: 16px;
+    /   line-height: 10px;
+    / }
+
+    / .blue-box .body a {
+    /   color: #438eb9;
+    /   text-decoration: none;
+    /   font-family: 'pn_regular', Arial, sans-serif;
+    /   font-size: 20px;
+    /   display: inline-block;
+    /   line-height: 28px;
+    / }
+
+    / .blue-box .body p:first-child {
+    /   margin-top: 0;
+    / }
+
+    / .blue-box .body a.small {
+    /   font-size: 16px;
+    /   line-height: 10px;
+    / }
+
+    / .blue-box .footer {
+    /   width: 100%;
+    /   background: #0073c6;
+    /   height: 40px;
+    /   border-radius: 0 0 5px 5px;
+    /   border-top: 1px solid rgba(34, 34, 34, 0.2);
+    /   overflow: hidden;
+    / }
+
+    / .blue-box .footer p {
+    /   font-family: 'pn_regular', Arial, sans-serif;
+    /   font-size: 18px;
+    /   line-height: 10px;
+    /   margin-bottom: -1px;
+    /   color: white;
+    /   text-align: right;
+    /   padding-right: 10px;
+    / rails c
+    / s = School.first
+    / SchoolMailer.send_token(s).deliver
+
+    / }
+  body
+    div [style="background-color: #5EC152;min-width: 100%;"]
+      div [style="background: #3E3C7F; height: 165; min-width: 100%; display: block;"]
+        img src="https://s3-sa-east-1.amazonaws.com/hotelquando-production/logo_email.png" alt=""
+        / img.logo src="https://s3-sa-east-1.amazonaws.com/hotelquando-production/logo_email.png" alt=""
+      div [style="text-align: center;"]
+        h1 [ style="font-family: 'pn_bold', Open-Sans, Arial, sans-serif; font-size: 33px; color: white; margin: 97px auto 67px;"]
+          = content_for(:title)
+        p [style="font-family: 'pn_semibold', Open-Sans, Arial, sans-serif; font-size: 14px; color: #275722; text-align: center;"]
+          = content_for(:sub_title)
+      hr
+      .text
+        = content_for(:text)
+      .links
+        = content_for(:links)

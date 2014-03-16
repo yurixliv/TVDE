@@ -1,0 +1,269 @@
+body.selected
+  background: #5CC6DC
+  .main
+    display: block
+
+    section.title
+      background-color: #3594A8
+      background-image: url("fig1.png")
+      background-position: 750px 10px
+      background-repeat: no-repeat
+      height: 330px
+      width: 100%
+      max-width: 100%
+      margin-top: 90px
+
+      h1
+        font-family: 'pn_semibold', Arial, sans-serif
+        font-size: 2.6em
+        color: #fff
+        margin: 66px 0 35px 0
+        letter-spacing: 1.3px
+        text-shadow: 4px 4px 0 #308799
+
+
+      p
+        font-family: 'pn_light', Arial, sans-serif
+        font-size: 1.3em
+        letter-spacing: 1.2px
+        margin: 10px 0
+        text-align: left
+        color: #fff
+        width: 520px
+
+    section.form
+      .form_group
+        margin-bottom: 10px
+
+      h2, label
+        color: #fff
+        text-align: left
+
+      h2
+        font-size: 1.6em
+        margin: 60px 0 20px
+        font-family: 'pn_semibold', Arial, sans-serif
+        &.extra_bottom
+          margin-bottom: 40px
+
+      label
+        font-size: 0.9em
+        margin: 0 0 6px
+        font-family: 'pn_regular', Arial, sans-serif
+
+      p
+        color: #2e899c
+        font-family: "pn_semibold", Arial, sans-serif
+        font-size: 1.2em
+        text-align: left
+        letter-spacing: 0.6px
+        margin-bottom: 40px
+
+      .select-default
+        color: #fff
+        background: #40abc2
+        border: 0
+        border-radius: 0
+        height: 50px
+        font-size: 1.1em
+        font-family: 'pn_light', Arial, sans-serif
+        text-indent: 4px
+        margin-bottom: 10px
+
+      .input-default
+        color: #fff
+        background: #40ABC2
+        padding: 2px
+        border: 0
+        border-radius: 0
+        line-height: 20px
+        height: 50px
+        box-shadow: none
+        text-indent: 20px
+        font-size: 1.3em
+        line-height: 30px
+        opacity: 1
+        display: block
+        width: 100%
+        vertical-align: middle
+        font-family: 'pn_light', Arial, sans-serif
+
+      .label-radio
+        margin: 36px 80px 0px 40px
+        font-family: 'pn_light', Arial, sans-serif
+        letter-spacing: 1px
+        text-indent: 37px
+        width: 30px
+        font-weight: normal
+
+      .label-radio-circular
+        margin: 0px 15px 0px 48px
+        border-radius: 26px
+        max-height: 26px
+        &.first
+          margin-left: 0
+
+      .label-content
+        font-family: 'pn_semibold', Arial, sans-serif
+        font-weight: normal
+        letter-spacing: 1px
+
+      .input-focus
+        border: 1px solid #2e899c
+      .input-valid
+        border: 1px solid #2E9C67
+      .input-invalid
+        border: 1px solid #C24040
+
+      .initial-focus
+        color: #fff
+        font-family: 'pn_regular', Arial, sans-serif
+        &.inline
+          visibility: hidden
+        &.valid
+          color: #2E9C67
+        &.invalid
+          color: #C24040
+
+        &.focus-add
+          -webkit-animation-duration: 400ms
+          animation-duration: 400ms
+          -webkit-animation-fill-mode: both
+          animation-fill-mode: both
+
+        &.focus-remove
+          -webkit-animation-duration: 400ms
+          animation-duration: 400ms
+          -webkit-animation-fill-mode: both
+          animation-fill-mode: both
+
+        &.focus-add, &.focus-remove.focus-remove-active
+          @extend .fadeOutDown
+
+        &.focus, &.focus-remove, &.focus-add.focus-add-active
+          color: #2e899c
+          @extend .fadeInUp
+
+        &.inline.focus, &.inline.focus-remove, &.inline.focus-add.focus-add-active
+          visibility: visible
+
+      .errors
+        position: relative
+        padding: 0.2em 0
+
+      .validations
+        color: #C55A5A
+        position: absolute
+        visibility: visible
+        font-size: 0.9em
+        font-family: 'pn_light', Arial, sans-serif
+        top: -74px
+        right: 0
+        letter-spacing: 0.5px
+
+        &.ng-hide-add
+          -webkit-animation-duration: 400ms
+          animation-duration: 400ms
+          -webkit-animation-fill-mode: both
+          animation-fill-mode: both
+          display: block!important
+
+        &.ng-hide-remove
+          -webkit-animation-duration: 300ms
+          animation-duration: 300ms
+          -webkit-animation-fill-mode: both
+          animation-fill-mode: both
+          display: block!important
+
+        &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
+          @extend .fadeInDown
+
+        &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active
+          visibility: visible
+          @extend .fadeOutUp
+
+        &.ng-hide
+          visibility: hidden
+
+  hr
+    border-color: #fff
+
+  footer
+    p
+      color: #fff
+      font-family: 'pn_light', Arial, sans-serif
+      font-size: 1.1em
+      margin-bottom: 50px
+    a.logo
+      background: url("logo_white.png")
+      display: inline-block
+      width: 100px
+      height: 33px
+      margin: 45px 0 10px
+
+  input[type=radio], input[type=checkbox]
+    display: none
+
+  input[type=radio] + label, input[type=checkbox] + label
+    display: inline-block
+    margin: -2px
+    padding: 6px
+    margin-bottom: 0
+    font-size: 14px
+    line-height: 20px
+    color: #333
+    text-align: center
+    text-shadow: 0 1px 1px rgba(255,255,255,0.75)
+    vertical-align: middle
+    cursor: pointer
+    background-color: #40ABC2
+    border: 8px solid #40ABC2
+
+  input[type=radio]:checked + label, input[type=checkbox]:checked + label
+    background-image: none
+    outline: 0
+    background-color: #1A4B55
+
+  .sep
+    float: left
+    position: relative
+    min-height: 1px
+    box-sizing: border-box
+    margin: 0 20px
+
+  .margin_top_36
+    margin-top: 36px
+
+
+  .button-style
+    background-color: #eec000
+    text-align: center
+    color: white
+    text-shadow: 3px 3px 0px #eab300
+    border: 0
+    padding: 28px 72px 21px 70px
+    font-size: 1.4em
+    font-family: 'pn_semibold', Arial, sans-serif
+    margin: 95px 0 40px 0
+    display: block
+    border-radius: 10px
+    letter-spacing: 1.3px
+    border-bottom: 7px solid #E2B400
+    box-shadow: 6px 11px 0 #57BDD2
+    -webkit-transition: all 250ms ease-in-out
+    -moz-transition: all 250ms ease-in-out
+    -o-transition: all 250ms ease-in-out
+    -ms-transition: all 250ms ease-in-out
+    transition: all 250ms ease-in-out
+    position: relative
+    &:hover
+      background-color: #E6C700
+      border-bottom: 7px solid #DAAD01
+      box-shadow: 6px 11px 0 #4AADC2
+    &:active
+      box-shadow: 1px 6px 0 #4db658
+      position: relative
+      top: 2px
+    &:focus
+      outline-offset: 0
+      outline: 0

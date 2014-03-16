@@ -1,0 +1,126 @@
+header.ha-header.ha-header-large
+  .container
+    .row
+      h1.col-sm-4
+        = image_tag("logo.png")
+      nav.col-sm-8
+        a.head_step0.active href="#step0" O que queremos
+        a.head_step1 href="#step1" Por que queremos?
+        a.head_step2 href="#step2" Professores
+        a.head_step3 href="#step3" Alunos
+        a.head_step4 href="#step4" Como participar
+        a.head_step5 href="#step5" FAQ
+.row.step0#step0
+  section
+    h2 = word_wrap("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout", line_width: 6)
+    = image_tag("fig0.png")
+    a href='#step5'
+      = image_tag("arrow1.png", class: 'arrow')
+.row.step1#step1
+  section.ha-waypoint data-animate-down="ha-header-small" data-animate-up="ha-header-large"
+    h2 = word_wrap("There are many variations of passages of Lorem Ipsum available, but the majority have sufferred alteration in some form, by injecting humour, or randomised words which don't look even slightly belivable.", line_width: 6)
+    = image_tag("fig1.png")
+    a href='#step2'
+      = image_tag("arrow1.png", class: 'arrow')
+.row.step2#step2
+  section
+    h2 = word_wrap("Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem impsum' will uncover many web sites still in their infancy.", line_width: 6)
+    = image_tag("fig2.png")
+    a href='#step3'
+      = image_tag("arrow1.png", class: 'arrow')
+.row.step3#step3
+  section
+    h2 = word_wrap("It has survived not only five centuries, but also the leap into eletronic typesetting, remaining essentially unchanged.", line_width: 6)
+    = image_tag("fig3.png")
+    a href='#step4'
+      = image_tag("arrow1.png", class: 'arrow')
+.row.step4#step4
+  h1 COMO SUA ESCOLA PODE COLABORAR?
+  .row.strip0
+    .container.position_relative
+      .col-sm-2
+        = image_tag("one.png")
+      .col-sm-10.padding_left_60
+        h2 Sua escola aceita o convite
+        p The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+      = image_tag("arrow0.png", class: 'arrow')
+  .row.strip1
+    .container.position_relative
+      .col-sm-9
+        h2.float_align_right Indica os professores
+        p.float_align_right The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+      .col-sm-3
+        = image_tag("two.png")
+      = image_tag("arrow0.png", class: 'arrow')
+  .row.strip0
+    .container.position_relative
+      .col-sm-2
+        = image_tag("three.png")
+      .col-sm-10.padding_left_60
+        h2 Começa a usar a plataforma
+        p The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+      = image_tag("arrow0.png", class: 'arrow')
+  .row.strip1
+    .container.position_relative
+      .col-sm-9
+        h2.float_align_right Ajuda na educação do brasil
+        p.float_align_right The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+      .col-sm-3
+        = image_tag("four.png")
+      a href='#step5'
+        = image_tag("arrow1.png", class: 'arrow')
+.row.step5#step5
+  section
+    h2 VIU COMO É FÁCIL?
+    p Se você é uma das escolas convidadas e já recebeu seu convite por email, informe seu código aqui:
+    = form_tag public_base_selected_path, method: :get, class: 'form-horizontal' do
+      .row
+        .col-sm-6.col-sm-offset-3
+          = label_tag 'code', 'Código', class: 'control-label hidden'
+          input.input-style name='code' value="" placeholder="digite seu código aqui"
+          = submit_tag 'ok', class: 'button-style'
+    hr
+    p Você ainda não recebeu o convite, mas gostaria de participar?
+    = link_to 'QUERO PARTICIPAR', public_base_sign_up_path, class: 'btn-large btn-join'
+.row.companies
+  section
+    .col-sm-6
+      h3 Apoio:
+      nav
+        a.qmagico href="#"
+        a.s href="#"
+        a.mc href="#"
+        br
+        a.form href="#"
+        a.head href="#"
+        a.omo href="#"
+        br
+        a.coke href="#"
+        a.unesco href="#"
+        a.folha href="#"
+    .col-sm-6
+      h3 Empresas Convidadas:
+      nav
+        a.youtube href="#"
+        a.qmagico href="#"
+        a.s href="#"
+        a.mc href="#"
+        br
+        a.lg href="#"
+        a.form href="#"
+        a.head href="#"
+        a.omo href="#"
+        br
+        a.windows href="#"
+        a.coke href="#"
+        a.unesco href="#"
+        a.folha href="#"
+footer
+  .container
+    .col-sm-10
+      a.logo
+      p Copyright 2014 - todos os direitos reservados
+    nav.social
+      h3 Compartilhe:
+      a.facebook href="#"
+      a.twitter href="#"

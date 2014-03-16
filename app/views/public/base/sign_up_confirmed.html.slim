@@ -1,0 +1,26 @@
+header.ha-header.ha-header-large
+  .container
+    .row
+      h1.col-sm-4
+        = image_tag("logo.png")
+      nav.col-sm-8
+        a.head_step0 href="#step0" O que queremos
+        a.head_step1 href="#step1" Por que queremos?
+        a.head_step2 href="#step2" Professores
+        a.head_step3 href="#step3" Alunos
+        a.head_step4 href="#step4" Como participar
+        a.head_step5 href="#step5" FAQ
+.main.row
+  .container
+    section.confirm
+      = image_tag 'confirm_sign_up.png'
+      h1 SEU CADASTRO FOI REALIZADO COM SUCESSO
+      p = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout".upcase
+      = link_to 'VOLTAR PÁGINA INICIAL', public_home_path, class: 'btn-style button-style'
+
+hr
+footer
+  .container
+    .col-sm-10
+      a.logo
+      p Copyright 2014 - todos os direitos reservados

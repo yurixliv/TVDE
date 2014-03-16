@@ -1,0 +1,66 @@
+after_selected
+
+{"name"=>"Escola Selecionada",
+ "category"=>"private",
+ "state"=>"Acre",
+ "city"=>"Acrelândia",
+ "cep"=>"12312-312",
+ "tel"=>"(11) 231231231",
+ "number_students"=>"between_400_and_800",
+ "headmaster_name"=>"Direto",
+ "headmaster_email"=>"diretor@email.com",
+ "technical_manager_name"=>"Responsável Técnico",
+ "technical_manager_email"=>"resp_tec@email.com",
+ "coordinator_name"=>"Coordenador",
+ "coordinator_email"=>"coordinator@email.com"}
+ # TODO: need to add namespace
+
+
+School.new({"name"=>"Escola Selecionada","category"=>"private","state"=>"Acre","city"=>"Acrelândia","cep"=>"12312-312","tel"=>"(11) 231231231","number_students"=>"between_400_and_800","headmaster_name"=>"Direto","headmaster_email"=>"diretor@email.com","technical_manager_name"=>"Responsável Técnico","technical_manager_email"=>"resp_tec@email.com","coordinator_name"=>"Coordenador","coordinator_email"=>"coordinator@email.com"}).save
+after sign_up
+{"name"=>"Escola Curiosa",
+ "category"=>"public",
+ "state"=>"Roraima",
+ "city"=>"Mucajaí",
+ "cep"=>"12312-312",
+ "tel"=>"(12) 312312312",
+ "number_students"=>"between_800_and_1200",
+ "contact_name"=>"Cadastro",
+ "contact_email"=>"escola@email.com",
+ "stage"=>"second"}
+ # TODO: stage needs to be a multi checkboxes or create more fields (lazy)
+
+
+ after invite
+ {"name"=>"Escola Parceira",
+ "category"=>"public",
+ "state"=>"Distrito Federal",
+ "city"=>"Brasília",
+ "cep"=>"12312-312",
+ "tel"=>"(12) 312312331",
+ "contact_name"=>"Contato",
+ "contact_email"=>"contato@email.com",
+ "contact_tel"=>"(12) 312312312",
+ "charge"=>"Cargo"}
+
+
+name
+type
+state
+city
+cep
+tel
+number_students
+headmaster_name
+headmaster_email
+technical_manager_name
+technical_manager_email
+coordinator_name
+coordinator_email
+contact_name
+contact_email
+stage
+contact_tel
+charge
+token
+confirmed_at

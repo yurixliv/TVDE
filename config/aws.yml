@@ -1,0 +1,13 @@
+# config/aws.yml
+defaults: &defaults
+  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+development:
+  <<: *defaults
+  bucket: "tvde-dev"
+test:
+  <<: *defaults
+  bucket: "tvde-test"
+production:
+  <<: *defaults
+  bucket: "tvde-production"

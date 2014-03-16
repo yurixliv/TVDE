@@ -1,0 +1,4 @@
+- content_for(:title) { "Olá, #{@school.name}" }
+- content_for(:sub_title) { "Sua escola foi selecionada para participar do nosso relatório.da para os outros usuários." }
+- content_for(:text) { "Sua escola foi selecionada para participar do nosso relatório.da para os outros usuários.Sua escola foi selecionada para participar do nosso relatório.da para os outros usuários.Sua escola foi selecionada para participar do nosso relatório.da para os outros usuários." }
+- content_for(:text) { link_to 'Acesse agora', public_base_selected_url(@school.token) }

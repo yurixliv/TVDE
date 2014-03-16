@@ -1,0 +1,66 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+needing: links
+
+landing page:
+|- remover aviao vermelho -> mudar pra texto 'compartilhe:'
+- por link contato do lado do link twitter (email_to for now)
+|- botoes navegacao #333 -> active vermelho
+|- setas em cada div scrooling pra proxima
+
+forms:
+| - checkbox (privada publica) => radio com bolinha no meio
+- validacao => |em cima, trocar tons, checks ou uncheck do lado do input
+- validacao telefone com base
+- pre-preencher com info do usuário
+
+cadastro:
+| - checkbox de baixo eh checkbox mesmo.
+- |namespace embaixo - |min 3 |max |12-15 |only chars_minus checar namespace ajax api robson - tel robson: 99 145 54 50
+  fallback do namespace = aviso de irreversibilidade de endereco (amarelo)
+
+section:
+|- v-align: middle
+|- p width before img_back
+
+|- model -> escolas ja cadastradas recebem token, escolas indicadas (precisa saber qm indicou) não recebem até confirmacao de admin.
+cadastradas -> normal
+indicada ~ curiosas
+
+|- model apos cadastro com token ->
+diretor recebe email notificando sucesso
+diretor recebe email em copia com o resp tecnico
+responsavel tecnico recebe um email um pouco diferente
+
+email - cuidado imagens e fonts (fallback Open Sans).
+|- cadastradas recebem token
+|- indicada só recebem notificação de cadastro
+
+retoques responsive

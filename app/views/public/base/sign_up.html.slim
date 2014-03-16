@@ -1,0 +1,137 @@
+header.ha-header.ha-header-large
+  .container
+    .row
+      h1.col-sm-4
+        = image_tag("logo.png")
+      nav.col-sm-8
+        a.head_step0 href="#step0" O que queremos
+        a.head_step1 href="#step1" Por que queremos?
+        a.head_step2 href="#step2" Professores
+        a.head_step3 href="#step3" Alunos
+        a.head_step4 href="#step4" Como participar
+        a.head_step5 href="#step5" FAQ
+.main
+  section.title
+    .container
+      h1 CADASTRE SUA ESCOLA AGORA
+      p = word_wrap("Nesta 1 etapa foram selecionadas 600 escolas públicas e 200 privadas.", line_width: 3)
+      p = word_wrap("Se você não foi convidada para a 1 etapa, não se preocupe, pois você pode participar da 2 etapa.", line_width: 3)
+  section.code.row
+    .container
+      .col-sm-4
+        p Se você é uma das escolas convidadas e já recebeu seu convite por email, informe seu código aqui:
+      = form_tag public_base_selected_path, method: :get, class: 'form-horizontal' do
+        .col-sm-6.col-sm-offset-2
+          = label_tag 'code', 'Código', class: 'control-label hidden'
+          input.input-style name='code' value="" placeholder="digite seu código aqui"
+          = submit_tag 'ok', class: 'button-style'
+  section.form.container
+    = form_tag public_base_sign_up_confirmed_path, method: :post, class: 'form-horizontal', role: "form", name: 'form', :'ng-submit' => 'submit()' do
+      .row
+        .col-sm-12
+          h2 PREENCHA SEUS DADOS PARA 2 ETAPA
+          p
+            | *todos os campos são de preenchimento obrigatório
+      .row
+        .col-sm-12
+          .form_group.row
+            .col-sm-5
+              = label_tag('school[contact_name]', 'NOME',
+                          { :'ng-class' => "{'focus':   school_contact_nameEvents.focus,
+                                             'valid':   form['school[contact_name]'].$valid,
+                                             'invalid': form['school[contact_name]'].$dirty&&form['school[contact_name]'].$invalid}",
+                            class: "initial-focus" })
+              input[class="input-default" required name='school[contact_name]' value="" ng-model="school.school_contact_name" ng-focus="school_contact_nameEvents = {focus: true}" ng-blur="school_contact_nameEvents = {focus: false}" ng-class="{'input-focus':   school_contact_nameEvents.focus, 'input-valid':   form['school[contact_name]'].$valid, 'input-invalid': form['school[contact_name]'].$invalid&&form['school[contact_name]'].$dirty}"  ]
+              .errors
+                span [class="validations" ng-show="form['school[contact_name]'].$dirty && form['school[contact_name]'].$error.required"] É necessário preencher este campo!
+            .sep
+            .col-sm-5
+              = label_tag('school[contact_email]', 'EMAIL',
+                          { :'ng-class' => "{'focus':   contact_emailEvents.focus,
+                                             'valid':   form['school[contact_email]'].$valid,
+                                             'invalid': form['school[contact_email]'].$dirty&&form['school[contact_email]'].$invalid}",
+                            class: "initial-focus" })
+              input [type="email" class="input-default" name="school[contact_email]" ng-model="school.contact_email" required ng-focus="contact_emailEvents = {focus: true}" ng-blur="contact_emailEvents = {focus: false}" ng-class="{'input-focus': contact_emailEvents.focus, 'input-valid': form['school[contact_email]'].$valid, 'input-invalid': form['school[contact_email]'].$invalid&&form['school[contact_email]'].$dirty}"]
+              .errors
+                span [class="validations" ng-show="form['school[contact_email]'].$dirty && form['school[contact_email]'].$error.required"]
+                  | É necessário preencher este campo!
+                span [class="validations" ng-show="form['school[contact_email]'].$dirty && form['school[contact_email]'].$error.contact_email"]
+                  | Este email não é válido.
+            .col-sm-1
+
+          .form_group.row
+            .col-sm-5
+              = label_tag 'school[tel]', 'TELEFONE'
+              input.input-default name='school[tel]' value=""  class="js-mask-tel"
+            .sep
+            .col-sm-5
+              = label_tag 'school[state]', 'ESTADO'
+              select[ng-model="state" name='school[state]' ng-options="state.acronym as state.name for state in states" ng-change="updateCity()" class="form-control select-default"]
+            .col-sm-1
+          .form_group.row
+            .col-sm-5
+              = label_tag 'scholl[city]', 'CIDADE'
+              select[ng-model="city" name='school[city]' ng-options="city as city for city in cities" class="form-control select-default"]
+            .sep
+            .col-sm-5
+              = label_tag 'school[cep]', 'CEP'
+              input.input-default name='school[cep]' value="" class="js-mask-cep"
+            .col-sm-1
+          .form_group.row
+            .col-sm-5
+              = label_tag('school[name]', 'ESCOLA',
+                          { :'ng-class' => "{'focus':   school_nameEvents.focus,
+                                             'valid':   form['school[name]'].$valid,
+                                             'invalid': form['school[name]'].$dirty&&form['school[name]'].$invalid}",
+                            class: "initial-focus" })
+              input[class="input-default" required name='school[name]' value="" ng-model="school.school_name" ng-focus="school_nameEvents = {focus: true}" ng-blur="school_nameEvents = {focus: false}" ng-class="{'input-focus':   school_nameEvents.focus, 'input-valid':   form['school[name]'].$valid, 'input-invalid': form['school[name]'].$invalid&&form['school[name]'].$dirty}"  ]
+              .errors
+                span [class="validations" ng-show="form['school[name]'].$dirty && form['school[name]'].$error.required"] É necessário preencher este campo!
+            .sep
+            .col-sm-5.margin_top_36
+              = radio_button_tag 'school[category]', 'public', true
+              = label_tag 'school[category_public]', "", class: 'label-radio-circular first'
+              = label_tag 'school[category_public]', "PÚBLICA", class: 'label-content'
+              = radio_button_tag 'school[category]', 'private'
+              = label_tag 'school[category_private]', "", class: 'label-radio-circular'
+              = label_tag 'school[category_private]', "PRIVADA", class: 'label-content'
+            .col-sm-1
+      .row
+        .col-sm-12
+          h2.extra_bottom QUANTOS ALUNOS SUA ESCOLA POSSUI?
+        .col-sm-12
+          = radio_button_tag 'school[number_students]', 'under_400', true
+          = label_tag 'school[number_students_under_400]', '', class: 'label-radio-circular first'
+          = label_tag 'school[number_students_under_400]', 'MENOS DE 400', class: "label-content"
+          = radio_button_tag 'school[number_students]', 'between_400_and_800'
+          = label_tag 'school[number_students_between_400_and_800]', '', class: 'label-radio-circular'
+          = label_tag 'school[number_students_between_400_and_800]', '400 A 800', class: "label-content"
+          = radio_button_tag 'school[number_students]', 'between_800_and_1200'
+          = label_tag 'school[number_students_between_800_and_1200]', '', class: 'label-radio-circular'
+          = label_tag 'school[number_students_between_800_and_1200]', '800 A 1200', class: "label-content"
+          = radio_button_tag 'school[number_students]', 'more_than_1200'
+          = label_tag 'school[number_students_more_than_1200]', '', class: 'label-radio-circular'
+          = label_tag 'school[number_students_more_than_1200]', 'MAIS DE 1200'
+      .form_group.row.extra_top
+        .col-sm-12
+          = check_box_tag 'school[stage_first]', false, class: 'radio-default'
+          = label_tag 'school[stage_first]', "", class: 'label-radio-extra'
+          = label_tag 'school[stage_first]', "DESEJO PARTICIPAR DA 1 ETAPA", class: 'label-content'
+      .form_group.row
+        .col-sm-12
+          = check_box_tag 'school[stage_second]', false, class: 'radio-default'
+          = label_tag 'school[stage_second]', "", class: 'label-radio-extra'
+          = label_tag 'school[stage_second]', "DESEJO PARTICIPAR DA 2 ETAPA", class: 'label-content'
+      .form_group.row
+        .col-sm-12
+          = check_box_tag 'school[stage_report]', false, class: 'radio-default'
+          = label_tag 'school[stage_report]', "", class: 'label-radio-extra'
+          = label_tag 'school[stage_report]', "QUERO RECEBER RELATÓRIOS DA 1 ETAPA", class: 'label-content'
+
+      = submit_tag 'QUERO PARTICIPAR', class: 'button-join'
+hr
+footer
+  .container
+    .col-sm-10
+      a.logo
+      p Copyright 2014 - todos os direitos reservados

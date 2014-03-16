@@ -1,0 +1,112 @@
+header.ha-header.ha-header-large
+  .container
+    .row
+      h1.col-sm-4
+        = image_tag("logo.png")
+      nav.col-sm-8
+        a.head_step0 href="#step0" O que queremos
+        a.head_step1 href="#step1" Por que queremos?
+        a.head_step2 href="#step2" Professores
+        a.head_step3 href="#step3" Alunos
+        a.head_step4 href="#step4" Como participar
+        a.head_step5 href="#step5" FAQ
+.main
+  section.title
+    .container
+      h1 CONVIDE UMA ESCOLA PARCEIRA
+      p = word_wrap("It is a established fact that a reader will be distracted by the readable content of a page when looking at its layout. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem impsum'.", line_width: 3)
+  section.form.container
+    = form_tag public_base_partner_confirmed_path, method: :post, class: 'form-horizontal', role: "form", name: 'form', :'ng-submit' => 'submit()' do
+      .row
+        .col-sm-12
+          h2 ESCOLA
+          p Many desktop publishing packages and web page editors now use Lorem Ipsum as default model text.
+      .row
+        .col-sm-12
+          .form_group.row
+            .col-sm-5
+              = label_tag('school[name]', 'ESCOLA',
+                          { :'ng-class' => "{'focus':   school_nameEvents.focus,
+                                             'valid':   form['school[name]'].$valid,
+                                             'invalid': form['school[name]'].$dirty&&form['school[name]'].$invalid}",
+                            class: "initial-focus" })
+              input[class="input-default" required name='school[name]' value="" ng-model="school.school_name" ng-focus="school_nameEvents = {focus: true}" ng-blur="school_nameEvents = {focus: false}" ng-class="{'input-focus':   school_nameEvents.focus, 'input-valid':   form['school[name]'].$valid, 'input-invalid': form['school[name]'].$invalid&&form['school[name]'].$dirty}"  ]
+              .errors
+                span [class="validations" ng-show="form['school[name]'].$dirty && form['school[name]'].$error.required"] É necessário preencher este campo!
+            .sep
+            .col-sm-5.margin_top_36
+              = radio_button_tag 'school[category]', 'public', true
+              = label_tag 'school[category_public]', "", class: 'label-radio-circular first'
+              = label_tag 'school[category_public]', "PÚBLICA", class: 'label-content'
+              = radio_button_tag 'school[category]', 'private'
+              = label_tag 'school[category_private]', "", class: 'label-radio-circular'
+              = label_tag 'school[category_private]', "PRIVADA", class: 'label-content'
+            .col-sm-1
+          .form_group.row
+            .col-sm-5
+              = label_tag 'school[state]', 'ESTADO'
+              select[ng-model="state" name='school[state]' ng-options="state.acronym as state.name for state in states" ng-change="updateCity()" class="form-control select-default"]
+            .sep
+            .col-sm-5
+              = label_tag 'scholl[city]', 'CIDADE'
+              select[ng-model="city" name='school[city]' ng-options="city as city for city in cities" class="form-control select-default"]
+            .col-sm-1
+          .form_group.row
+            .col-sm-5
+              = label_tag 'school[cep]', 'CEP'
+              input.input-default name='school[cep]' value="" class="js-mask-cep"
+            .sep
+            .col-sm-5
+              = label_tag 'school[tel]', 'TELEFONE'
+              input.input-default name='school[tel]' value=""  class="js-mask-tel"
+            .col-sm-1
+      .row
+        .col-sm-12
+          h2 CONTATO
+          p Many desktop publishing packages and web page editors now use Lorem Ipsum as default model text.
+
+      .form_group.row
+        .col-sm-5
+          = label_tag('school[contact_name]', 'NOME',
+                        { :'ng-class' => "{'focus':   contact_nameEvents.focus,
+                                           'valid':   form['school[contact_name]'].$valid,
+                                           'invalid': form['school[contact_name]'].$dirty&&form['school[contact_name]'].$invalid}",
+                          class: "initial-focus" })
+          input[class="input-default" required name='school[contact_name]' value="" ng-model="school.contact_name" ng-focus="contact_nameEvents = {focus: true}" ng-blur="contact_nameEvents = {focus: false}" ng-class="{'input-focus':   contact_nameEvents.focus, 'input-valid':   form['school[contact_name]'].$valid, 'input-invalid': form['school[contact_name]'].$invalid&&form['school[contact_name]'].$dirty}"  ]
+          .errors
+            span [class="validations" ng-show="form['school[contact_name]'].$dirty && form['school[contact_name]'].$error.required"] É necessário preencher este campo!
+        .sep
+        .col-sm-5
+          = label_tag('school[contact_email]', 'EMAIL',
+                        { :'ng-class' => "{'focus':   contact_emailEvents.focus,
+                                           'valid':   form['school[contact_email]'].$valid,
+                                           'invalid': form['school[contact_email]'].$dirty&&form['school[contact_email]'].$invalid}",
+                          class: "initial-focus" })
+          input [type="email" class="input-default" name="school[contact_email]" ng-model="school.contact_email" required ng-focus="contact_emailEvents = {focus: true}" ng-blur="contact_emailEvents = {focus: false}" ng-class="{'input-focus': contact_emailEvents.focus, 'input-valid': form['school[contact_email]'].$valid, 'input-invalid': form['school[contact_email]'].$invalid&&form['school[contact_email]'].$dirty}"]
+          .errors
+            span [class="validations" ng-show="form['school[contact_email]'].$dirty && form['school[contact_email]'].$error.required"]
+              | É necessário preencher este campo!
+            span [class="validations" ng-show="form['school[contact_email]'].$dirty && form['school[contact_email]'].$error.email"]
+              | Este email não é válido.
+      .form_group.row
+        .col-sm-5
+          = label_tag 'school[contact_tel]', 'TELEFONE'
+          input.input-default name='school[contact_tel]' value=""  class="js-mask-tel"
+        .sep
+        .col-sm-5
+          = label_tag('school[charge]', 'CARGO',
+                        { :'ng-class' => "{'focus':   chargeEvents.focus,
+                                           'valid':   form['school[charge]'].$valid,
+                                           'invalid': form['school[charge]'].$dirty&&form['school[charge]'].$invalid}",
+                          class: "initial-focus" })
+          input[class="input-default" required name='school[charge]' value="" ng-model="school.charge" ng-focus="chargeEvents = {focus: true}" ng-blur="chargeEvents = {focus: false}" ng-class="{'input-focus':   chargeEvents.focus, 'input-valid':   form['school[charge]'].$valid, 'input-invalid': form['school[charge]'].$invalid&&form['school[charge]'].$dirty}"  ]
+          .errors
+            span [class="validations" ng-show="form['school[charge]'].$dirty && form['school[charge]'].$error.required"] É necessário preencher este campo!
+        .col-sm-1
+      = submit_tag 'CONFIRMAR', class: 'button-style'
+hr
+footer
+  .container
+    .col-sm-10
+      a.logo
+      p Copyright 2014 - todos os direitos reservados
