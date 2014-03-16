@@ -182,7 +182,7 @@ app.controller('MainController', ['$scope', '$filter', function($scope, $filter)
 }]);
 
 
-app.directive('uniqueNamespace', function($http) {
+app.directive('uniqueNamespace',['$http', function($http) {
   var toId;
   return {
     restrict: 'A',
@@ -214,4 +214,4 @@ app.directive('uniqueNamespace', function($http) {
       })
     }
   }
-});
+}]);
