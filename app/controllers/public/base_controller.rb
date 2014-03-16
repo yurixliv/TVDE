@@ -47,10 +47,10 @@ class Public::BaseController < ApplicationController
   end
 
   def check_namespace
-    # @bool = School.check_namespace params[:namespace]
-    # respond_to do |format|
-    #   format.json { render :json => @bool, status: 200 }
-    # end
+    @bool = School.check_namespace params[:namespace]
+    respond_to do |format|
+      format.json { render :json => @bool, status: 200 }
+    end
   end
 
   private
