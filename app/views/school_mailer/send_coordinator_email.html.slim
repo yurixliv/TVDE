@@ -1,0 +1,8 @@
+- content_for(:title) { "OLÁ #{@school.coordinator_name}" }
+- content_for(:text) {
+  p = "O diretor #{@school.headmaster_name}(em cópia a esse email) cadastrou sua escola para contribuir com o primeiro relatório tvve - tendências da vida virtual na educação."
+  p = "O Relatório tvve é o primeiro relatório de tendências da vida virtual na Educação, que trará informações sobre a adoção e uso de recursos digitais na educação."
+  p Você foi indicado como coordenador pedagógico do projeto e receberá informações do andamento do relatório.
+  p = "Será responsável técnico do projeto #{ @school.technical_manager_name} (#{ @school.technical_manager_email})."
+  p Em caso de dúvida, não hesite em contactar pelo email contato@tvve.com.br
+}

@@ -58,6 +58,11 @@ body.selected
         text-align: left
         letter-spacing: 0.6px
         margin-bottom: 40px
+        &.qmagico
+          position: absolute
+          top: 42px
+          color: white
+          left: -30px
 
       .select-default
         color: #fff
@@ -151,6 +156,38 @@ body.selected
         position: relative
         padding: 0.2em 0
 
+      .validations_special
+        color: #C55A5A
+        position: absolute
+        visibility: visible
+        font-size: 0.9em
+        font-family: 'pn_light', Arial, sans-serif
+        letter-spacing: 0.5px
+        left: 0px
+        top: 3px
+        &.ng-hide-add
+          -webkit-animation-duration: 400ms
+          animation-duration: 400ms
+          -webkit-animation-fill-mode: both
+          animation-fill-mode: both
+          display: block!important
+
+        &.ng-hide-remove
+          -webkit-animation-duration: 300ms
+          animation-duration: 300ms
+          -webkit-animation-fill-mode: both
+          animation-fill-mode: both
+          display: block!important
+
+        &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active
+          @extend .fadeInDown
+
+        &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active
+          visibility: visible
+          @extend .fadeOutUp
+
+        &.ng-hide
+          visibility: hidden
       .validations
         color: #C55A5A
         position: absolute
@@ -267,3 +304,10 @@ body.selected
     &:focus
       outline-offset: 0
       outline: 0
+
+p.verify
+  position: absolute
+  top: 42px
+  right: -400px
+p.namespace_info
+  margin: 15px

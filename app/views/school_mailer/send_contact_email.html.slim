@@ -1,0 +1,7 @@
+- content_for(:title) { "OLÁ #{@school.contact_name}" }
+- content_for(:text) {
+  p = "Recebemos informações sobre a sua instituição educacional para fazer parte da construção do relatório tvve - tendências da vida virtual na educação."
+  p = "Sua instituição está na fila de espera do estudo e o seu processo está sendo avaliado. Aguarde o nosso próximo contato."
+  = link_to "Clique aqui para saber mais", public_base_home_url
+  p Em caso de dúvida, não hesite em contactar pelo email contato@tvve.com.br
+}

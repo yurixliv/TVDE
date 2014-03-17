@@ -1,4 +1,9 @@
-- content_for(:title) { "Olá, #{@school.name}" }
-- content_for(:sub_title) { "Sua escola foi selecionada para participar do nosso relatório.da para os outros usuários." }
-- content_for(:text) { "Sua escola foi selecionada para participar do nosso relatório.da para os outros usuários.Sua escola foi selecionada para participar do nosso relatório.da para os outros usuários.Sua escola foi selecionada para participar do nosso relatório.da para os outros usuários." }
+- content_for(:title) { "OLÁ, #{@school.name}" }
+- content_for(:sub_title) { "SUA INSTITUIÇÃO EDUCACIONAL FOI SELECIONADA PARA PARTICIPAR DO RELATÓRIO TENDÊNCIAS DA VIDA VIRTUAL NA EDUCAÇÃO." }
+- content_for(:text) {
+  p O Relatório tvve é o primeiro relatório de tendências da Vida Virtual na Educação, que trará informações sobre a adoção e uso de recursos digitais na educação.
+  p Mediremos virtualmente, entre março e maio, a criação e/ou uso de objetos digitais na web (vídeos, testes, textos) dentro do dia a dia de atividades em sala de aula, lição de casa e/ou sala de aula invertida.
+  p Somente 600 instituições educacionais públicas e 200 privadas no Brasil foram selecionadas para compor o relatório geral. As instituições não serão identificadas e não haverá qualquer espécie de ranking no relatório final - cada instituição receberá seu relatório individual, comparando-a à tendência geral das instituições participantes. Fundações, Institutos e empresas apóiam a elaboração deste relatório independente.
+  p Para concluir seu cadastro, tirar dúvidas e iniciar a etapa de habilitação técnica, acesse o link abaixo e insira o código no campo indicado.
+}
 - content_for(:text) { link_to 'Acesse agora', public_base_selected_url(@school.token) }

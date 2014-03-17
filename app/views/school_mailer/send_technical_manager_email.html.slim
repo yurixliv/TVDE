@@ -1,0 +1,20 @@
+- content_for(:title) { "OLÁ #{@school.technical_manager_name}" }
+- content_for(:text) {
+  p = "O diretor #{@school.headmaster_name}(em cópia a esse email) cadastrou sua escola para contribuir com o primeiro relatório tvve - tendências da vida virtual na educação."
+  p = "Será coordenador pedagógico do projeto #{@school.coordinator_name}(#{@school.coordinator_email})"
+  - if @school.try(:link).try(:present?)
+    p = "Você foi eleito responsável técnico e deverá proceder com a habilitação no seguinte link:"
+      = link_to "#{@school.link }"
+  - else
+    p = "Você foi eleito responsável técnico, mas você não poderá acessar a plataforma por um problema técnico no nosso sistema. Para garantir o seu acesso na nossa plataforma, pedimos que envie um email para central de atendimento contato@tvve.com.br e relatar o problema."
+  p
+    A habilitação consiste em:
+    1) Assistir o curso habilitação técnica
+    2) Criar uma estrutura de curso com uma seção e sua descrição e quatro tipos de material, listados abaixo:
+    (procure usar um exemplo real de sua instituição - este exemplo só será utilizado para atestar a habilitação técnica para participação no Rtvve)
+    a. Documento de texto
+    b. Vídeo do Youtube ou Vimeo
+    c. Série de exercícios
+    d. Enviar arquivo .pdf
+  p Em caso de dúvida, não hesite em contactar pelo email contato@tvve.com.br
+}

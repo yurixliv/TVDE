@@ -4,7 +4,8 @@ gem 'rails', '4.0.1'
 gem 'rails_12factor', group: :production
 gem "rest-client", "~> 1.6.7"
 
-gem 'pg'
+gem 'pg', group: :production
+gem 'mysql2', group: :development
 gem 'turbolinks'
 gem "activerecord-session_store", "~> 0.1.0"
 gem "aws-sdk", '1.11.1'
@@ -36,13 +37,13 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 2.0'
-  # gem 'capybara'
-  # gem 'launchy'
-  # gem 'poltergeist'
-  # gem 'database_cleaner'
-  # gem 'show_me_the_cookies'
-  # gem 'capybara-screenshot'
-  # gem "shoulda-matchers"
-  # gem 'connection_pool', '1.1.0' #for database shareing
+  gem 'capybara'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'show_me_the_cookies'
+  gem 'capybara-screenshot'
+  gem "shoulda-matchers"
+  gem 'connection_pool', '1.1.0' #for database shareing
 end
 

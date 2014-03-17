@@ -4,6 +4,9 @@
   -moz-box-sizing: border-box
   box-sizing: border-box
 
+select
+  -webkit-appearance: none
+
 body.index
   background: #fff
   padding: 215px 0 0
@@ -32,8 +35,8 @@ body.index
     a
       img.arrow
         position: absolute
-        right: 48%
-        bottom: -5px
+        right: 50%
+        bottom: 7px
         width: 30px
         height: 30px
 
@@ -94,8 +97,12 @@ body.index
         background: #1EBAAB
       &.strip1
         background: #1CAFA1
+      &.last
+        height: 344px
       img
         margin-top: 50px
+        margin-right: 15px
+        margin-left: -15px
         &.arrow
           position: absolute
           right: 50%
@@ -474,4 +481,5 @@ input::-webkit-input-placeholder, input::-moz-placeholder, input:-ms-input-place
   .ha-header nav
     font-size: 60%
 
-
+span.top-83
+  top: -83px

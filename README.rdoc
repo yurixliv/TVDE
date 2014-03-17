@@ -29,6 +29,10 @@ Please feel free to use a different markup language if you do not plan to run
 
 needing: links
 
+
+-create who invited field in partner view
+-check env variables security
+
 landing page:
 |- remover aviao vermelho -> mudar pra texto 'compartilhe:'
 - por link contato do lado do link twitter (email_to for now)
@@ -37,9 +41,9 @@ landing page:
 
 forms:
 | - checkbox (privada publica) => radio com bolinha no meio
-- validacao => |em cima, trocar tons, checks ou uncheck do lado do input
+- validacao => |em cima, trocar tons, |checks ou uncheck do lado do input
 - validacao telefone com base
-- pre-preencher com info do usuário
+- pre-preencher scom info do usuário
 
 cadastro:
 | - checkbox de baixo eh checkbox mesmo.

@@ -14,18 +14,19 @@ header.ha-header.ha-header-large
   section.title
     .container
       h1 CONVIDE UMA ESCOLA PARCEIRA
-      p = word_wrap("It is a established fact that a reader will be distracted by the readable content of a page when looking at its layout. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem impsum'.", line_width: 3)
+      p = word_wrap("Somente instituições de ensino convidadas participarão desta primeira fase do relatório tvve - tendências da vida virtual na educação.", line_width: 3)
+      p = word_wrap("No entanto, você pode indicar instituições de seu conhecimento para contribuir com as próximas edições do relatório.", line_width: 3)
+      p = word_wrap("Se desejar, preencha o formulário abaixo.", line_width: 3)
   section.form.container
     = form_tag public_base_partner_confirmed_path, method: :post, class: 'form-horizontal', role: "form", name: 'form', :'ng-submit' => 'submit()' do
       .row
         .col-sm-12
-          h2 ESCOLA
-          p Many desktop publishing packages and web page editors now use Lorem Ipsum as default model text.
+          h2 INSTITUIÇÃO DE ENSINO
       .row
         .col-sm-12
           .form_group.row
             .col-sm-5
-              = label_tag('school[name]', 'ESCOLA',
+              = label_tag('school[name]', 'NOME DA INSTITUIÇÃO',
                           { :'ng-class' => "{'focus':   school_nameEvents.focus,
                                              'valid':   form['school[name]'].$valid,
                                              'invalid': form['school[name]'].$dirty&&form['school[name]'].$invalid}",
@@ -45,11 +46,17 @@ header.ha-header.ha-header-large
           .form_group.row
             .col-sm-5
               = label_tag 'school[state]', 'ESTADO'
-              select[ng-model="state" name='school[state]' ng-options="state.acronym as state.name for state in states" ng-change="updateCity()" class="form-control select-default"]
+              select[ng-model="state" name='school[state]' ng-options="state.acronym as state.name for state in states" ng-change="updateCity()" valid-state class="form-control select-default"]
+              .errors
+                span [class="validations top-83" ng-show="form['school[state]'].$dirty && form['school[state]'].$error.validState"]
+                  | É necessário preencher este campo!
             .sep
             .col-sm-5
               = label_tag 'scholl[city]', 'CIDADE'
               select[ng-model="city" name='school[city]' ng-options="city as city for city in cities" class="form-control select-default"]
+              .errors
+                span [class="validations top-83" ng-show="form['school[city]'].$dirty && form['school[state]'].$error.validState"]
+                  | É necessário preencher este campo!
             .col-sm-1
           .form_group.row
             .col-sm-5
@@ -63,8 +70,7 @@ header.ha-header.ha-header-large
       .row
         .col-sm-12
           h2 CONTATO
-          p Many desktop publishing packages and web page editors now use Lorem Ipsum as default model text.
-
+          p Diretor ou responsável pedagógico na instituição indicada
       .form_group.row
         .col-sm-5
           = label_tag('school[contact_name]', 'NOME',

@@ -1,0 +1,10 @@
+- content_for(:title) { "OLÁ, #{@school.headmaster_name}" }
+- content_for(:text) {
+  p Obrigado por se inscrever para colaborar com o relatório tvve (tendências da vida virtual na educação).
+  - if @school.try(:link).try(:present?)
+    p Você será informado de todos os passos neste processo.
+    p Agora o responsável técnico receberá email com instruções para habilitação técnica da instituição e, em caso de sucesso, o coordenador pedagógico será convidado a indicar os três professores que paticiparão da coleta de dados da vida virtual.
+  - else
+    p = "O responsável técnico que foi indicado (#{@school.technical_manager_email}), não pôde acessar a plataforma por um problema técnico no nosso sistema. Para garantir que ele possa acessar nossa plataforma, pedimos que envie um email para central de atendimento contato@tvve.com.br e relatar o problema."
+  p Em caso de dúvida, não hesite em contactar pelo email contato@tvve.com.br
+ }

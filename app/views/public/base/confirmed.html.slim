@@ -15,15 +15,17 @@ header.ha-header.ha-header-large
     section.confirm
       = image_tag 'confirm.png'
       h1 SEU CADASTRO FOI REALIZADO COM SUCESSO
-      p = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout".upcase
+      p = "OBRIGADO POR SE INSCREVER PARA COLABORAR COM O RELATÓRIO TVVE (TENDÊNCIAS DA VIDA VIRTUAL NA EDUCAÇÃO)."
+      p = "AGORA O RESPONSÁVEL TÉCNICO RECEBERÁ EMAIL COM INSTRUÇÕES PARA HABILITAÇÃO TÉCNICA DA INSTITUIÇÃO E, EM CASO DE SUCESSO, O COORDENADOR PEDAGÓGICO SERÁ CONVIDADO A INDICAR OS TRÊS PROFESSORES QUE PATICIPARÃO DA COLETA DE DADOS DA VIDA VIRTUAL."
     hr
   .container
     section.invite_more
       h1 DESEJA CONVIDAR OUTRAS ESCOLAS?
       = link_to 'SIM DESEJO', public_base_partner_path, class: 'btn-style button-style'
-      = link_to 'NÃO CONHEÇO OUTRAS ESCOLAS, FINALIZAR CADASTRO', public_home_path, class: 'extra-link'
-hr
-footer
+      = link_to 'FINALIZAR CADASTRO', public_home_path, class: 'extra-link'
+.row
+  hr
+footer.row
   .container
     .col-sm-10
       a.logo

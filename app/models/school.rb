@@ -12,9 +12,11 @@ class School < ActiveRecord::Base
   # instance methods
 
   def send_emails
+    debugger
     if has_token? && confirmed?
       SchoolMailer.send_headmaster_email(self).deliver
       SchoolMailer.send_technical_manager_email(self).deliver
+      SchoolMailer.coordinator_email(self).deliver
     elsif has_token?
       SchoolMailer.send_token(self).deliver
     else
@@ -63,5 +65,13 @@ class School < ActiveRecord::Base
 
   def set_namespace
     AWS::Route53::HostedZone.new('ZUHORGBBATG0D').resource_record_sets.create("#{self.namespace}", 'CNAME', {ttl: 3600, resource_records: [{value: 'ghs.googlehosted.com'}]})
+  end
+
+  #later
+  def invite
+    url = 'http://demo.qmagico.com.br/api/user/invite_user'
+    params = { :invite => '{"email": #{self.email.to_s}, "error": "INVALID_FORMAT", "is_admin": false, "is_editing": false, "is_student": false, "is_teacher": true}', :user_id => 'bsao', :ns => self.namespace.to_s }
+    headers = { api_key: '23982c5b345843ef90bc3d482486085b9b9aa87cbf5f491f622feac5efbf7dc', appid: 'sitetvde', ns:'demo' }
+    RestClient.post( url, params, headers)
   end
 end

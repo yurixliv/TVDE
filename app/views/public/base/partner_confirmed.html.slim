@@ -14,14 +14,14 @@ header.ha-header.ha-header-large
   .container
     section.confirm
       = image_tag 'confirm_partner.png'
-      h1 = "VOCÊ CONVIDOU A ESCOLA #{@school_name} COM SUCESSO"
-      p = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout".upcase
+      h1 VOCÊ INDICOU UMA INSTITUIÇÃO DE ENSINO COM SUCESSO
+      p COOPERAR É A PRIMEIRA ATITUDE PARA MUDAR A EDUCAÇÃO.
     hr
   .container
     section.invite_more
       h1 DESEJA CONVIDAR OUTRAS ESCOLAS?
       = link_to 'SIM DESEJO', public_base_partner_path, class: 'btn-style button-style'
-      = link_to 'NÃO CONHEÇO OUTRAS ESCOLAS, FINALIZAR CADASTRO', public_home_path, class: 'extra-link'
+      = link_to 'FINALIZAR CADASTRO', public_home_path, class: 'extra-link'
 hr
 footer
   .container

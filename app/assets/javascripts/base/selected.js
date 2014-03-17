@@ -1,8 +1,40 @@
 app.controller('MainController', ['$scope', '$filter', function($scope, $filter) {
   // $scope.states = yojs.get('states');
+  // $scope.category = 'CAT';
+  // $scope.categories = [{
+  //   name: "Selecione um tipo de instituição",
+  //   type: "CAT"
+  // }, {
+  //   name: "Secretaria de educação estadual",
+  //   type: "estate_office"
+  // },{
+  //   name: "Secretaria de educação municipal",
+  //   type: "municipal_office"
+  // },{
+  //   name: "Instituição de ensino da educação básica",
+  //   type: "basic"
+  // },{
+  //   name: "Instituição de ensino da educação superior",
+  //   type: "superior"
+  // },{
+  //   name: "Fundações, Institutos e similares",
+  //   type: "foundations_institutes_similars"
+  // },{
+  //   name: "Empresas",
+  //   type: "enterprises"
+  // },{
+  //   name: "Outros",
+  //   type: "others"
+  // }];
   $scope.looking = false;
-  $scope.state = 'AC'
+  $scope.state = 'SEL'
   $scope.states = [{
+    name: "Selecione Estado",
+    acronym: "SEL",
+    capital: "",
+    cities: ["Selecione Cidade"]
+  },
+  {
     name: "Acre",
     acronym: "AC",
     capital: "Rio Branco",
@@ -24,7 +56,7 @@ app.controller('MainController', ['$scope', '$filter', function($scope, $filter)
     name: "Amapá",
     acronym: "AP",
     capital: "Macapá",
-    "ities": ["Amapá","Calçoene","Cutias","Ferreira Gomes","Itaubal","Laranjal do Jari","Macapá","Mazagão","Oiapoque","Pedra Branca do Amapari","Porto Grande","Pracuúba","Santana","Serra do Navio","Tartarugalzinho","Vitória do Jari"]
+    cities: ["Amapá","Calçoene","Cutias","Ferreira Gomes","Itaubal","Laranjal do Jari","Macapá","Mazagão","Oiapoque","Pedra Branca do Amapari","Porto Grande","Pracuúba","Santana","Serra do Navio","Tartarugalzinho","Vitória do Jari"]
     },
   {
     name: "Bahia",
@@ -188,7 +220,7 @@ app.directive('uniqueNamespace',['$http', function($http) {
     restrict: 'A',
     require: 'ngModel',
     link: function(scope, elem, attr, ctrl) {
-      //when the scope changes, check the email.
+      //when the scope changes, check the namespace.
       scope.$watch(attr.ngModel, function(value) {
         // if there was a previous attempt, stop it.
         if(toId) clearTimeout(toId);
@@ -198,10 +230,9 @@ app.directive('uniqueNamespace',['$http', function($http) {
         toId = setTimeout(function(){
           // call to some API that returns { isValid: true } or { isValid: false }
           if(!angular.isUndefined(value)) {
-            // '/check-namespace?namespace=www.' + value+'.qmagico.com.br.',
+            // '/check-namespace?namespace=' + value+'.qmagico.com.br.',
             scope.looking = true;
             $http.get('/check-namespace?namespace=' + value+'.qmagico.com.br.', {responseType: "json",  headers: {'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json, text/plain, */*'}}).success(function(data) {
-
                 //set the validity of the field
                 scope.looking = false;
                 if(data === true)
@@ -215,3 +246,33 @@ app.directive('uniqueNamespace',['$http', function($http) {
     }
   }
 }]);
+
+app.directive('validState', function() {
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function(scope, elem, attr, ctrl) {
+      scope.$watch(attr.ngModel, function(value) {
+        if(value === 'SEL')
+          ctrl.$setValidity('validState', false);
+        else
+          ctrl.$setValidity('validState', true);
+      })
+    }
+  }
+});
+
+// app.directive('validCategory', function() {
+//   return {
+//     restrict: 'A',
+//     require: 'ngModel',
+//     link: function(scope, elem, attr, ctrl) {
+//       scope.$watch(attr.ngModel, function(value) {
+//         if(value === 'CAT')
+//           ctrl.$setValidity('validCategory', false);
+//         else
+//           ctrl.$setValidity('validCategory', true);
+//       })
+//     }
+//   }
+// });

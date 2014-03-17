@@ -13,19 +13,19 @@ header.ha-header.ha-header-large
 .main
   section.title
     .container
-      h1 VOCÊ FOI SELECIONADO.
-      p = word_wrap("It is a established fact that a reader will be distracted by the readable content of a page when looking at its layout. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem impsum'.", line_width: 3)
+      h1 A UM PASSO DA VIDA DIGITAL
+      p = word_wrap("Nesta primeiro relatório, somente instituições educacionais convidadas podem participar da sua elaboração. Complete o cadastro para garantir seu acesso.", line_width: 3)
   section.form.container
     = form_tag public_base_confirmed_path, method: :post, class: 'form-horizontal', role: "form", name: 'form', :'ng-submit' => 'submit()' do
       .row
         .col-sm-12
-          h2 ESCOLA
-          p Many desktop publishing packages and web page editors now use Lorem Ipsum as default model text.
+          h2 INSTITUIÇÃO EDUCACIONAL
+          p Os dados da sua instituição são sigilosos e o relatório individual de tendências de vida virtual na educação só será entregue ao diretor, nomeado abaixo.
       .row
         .col-sm-12
           .form_group.row
             .col-sm-5
-              = label_tag('school[name]', 'ESCOLA',
+              = label_tag('school[name]', 'NOME DA INSTITUIÇÃO',
                           { :'ng-class' => "{'focus':   school_nameEvents.focus,
                                              'valid':   form['school[name]'].$valid,
                                              'invalid': form['school[name]'].$dirty&&form['school[name]'].$invalid}",
@@ -45,20 +45,32 @@ header.ha-header.ha-header-large
           .form_group.row
             .col-sm-5
               = label_tag 'school[state]', 'ESTADO'
-              select[ng-model="state" name='school[state]' ng-options="state.acronym as state.name for state in states" ng-change="updateCity()" class="form-control select-default"]
+              select[ng-model="state" name='school[state]' ng-options="state.acronym as state.name for state in states" ng-change="updateCity()" valid-state class="form-control select-default"]
+              .errors
+                span [class="validations top-83" ng-show="form['school[state]'].$dirty && form['school[state]'].$error.validState"]
+                  | É necessário preencher este campo!
             .sep
             .col-sm-5
               = label_tag 'scholl[city]', 'CIDADE'
               select[ng-model="city" name='school[city]' ng-options="city as city for city in cities" class="form-control select-default"]
+              .errors
+                span [class="validations top-83" ng-show="form['school[city]'].$dirty && form['school[state]'].$error.validState"]
+                  | É necessário preencher este campo!
             .col-sm-1
           .form_group.row
             .col-sm-5
               = label_tag 'school[cep]', 'CEP'
-              input.input-default name='school[cep]' value="" class="js-mask-cep"
+              input [ name='school[cep]' ng-model="school.cep" value="" class="js-mask-cep input-default" required]
+              .errors
+                span [class="validations" ng-show="form['school[cep]'].$dirty && form['school[cep]'].$error.required"]
+                  | É necessário preencher este campo!
             .sep
             .col-sm-5
               = label_tag 'school[tel]', 'TELEFONE'
-              input.input-default name='school[tel]' value=""  class="js-mask-tel"
+              input [ name='school[tel]' value="" ng-model="school.tel" class="js-mask-tel input-default" required]
+              .errors
+                span [class="validations" ng-show="form['school[tel]'].$dirty && form['school[tel]'].$error.required"]
+                  | É necessário preencher este campo!
             .col-sm-1
       .row
         .col-sm-12
@@ -79,7 +91,7 @@ header.ha-header.ha-header-large
       .row
         .col-sm-12
           h2 DIRETOR
-          p Many desktop publishing packages and web page editors now use Lorem Ipsum as default model text.
+          p Responsável geral ou pedagógico da instituição
       .row
         .form_group
           .col-sm-5
@@ -108,7 +120,7 @@ header.ha-header.ha-header-large
       .row
         .col-sm-12
           h2 RESPONSÁVEL TÉCNICO
-          p Many desktop publishing packages and web page editors now use Lorem Ipsum as default model text.
+          p Responsável pela habilitação técnica do colégio na web
       .row
         .form_group
           .col-sm-5
@@ -136,8 +148,8 @@ header.ha-header.ha-header-large
 
       .row
         .col-sm-12
-          h2 COORDENADOR
-          p Many desktop publishing packages and web page editors now use Lorem Ipsum as default model text.
+          h2 COORDENADOR PEDAGÓGICO
+          p Responsável pedagógico do projeto
       .row
         .form_group
           .col-sm-5
@@ -165,7 +177,7 @@ header.ha-header.ha-header-large
       .row.margin_top_36
         .form_group
           .col-sm-5
-            = label_tag('school[namespace]', 'NAMESPACE',
+            = label_tag('school[namespace]', 'ENDEREÇO ELETRÔNICO DA SUA PLATAFORMA',
                           { :'ng-class' => "{'focus':   namespaceEvents.focus,
                                              'valid':   form['school[namespace]'].$valid,
                                              'invalid': form['school[namespace]'].$dirty && form['school[namespace]'].$invalid}",
@@ -184,34 +196,39 @@ header.ha-header.ha-header-large
                     ng-maxlength="20"
                     unique-namespace]
               .errors
-                span [class="validations"
+                span [class="validations_special"
                       ng-show="form['school[namespace]'].$dirty && form['school[namespace]'].$error.required"]
                   | É necessário preencher este campo!
-                span [class="validations"
+                span [class="validations_special"
                       ng-show="form['school[namespace]'].$dirty &&\
                                form['school[namespace]'].$error.minlength &&\
                               !form['school[namespace]'].$error.required"]
-                  | Minlength: 3 characters!
-                span [class="validations"
+                  | Mínimo: 3 caracteres!
+                span [class="validations_special"
                       ng-show="form['school[namespace]'].$dirty &&\
                                form['school[namespace]'].$error.maxlength &&\
                               !form['school[namespace]'].$error.minlength"]
-                  | Maxlength: 20 characters!
-                span [class="validations"
+                  | Máximo: 14 caracteres!
+                span [class="validations_special"
                       ng-show="form['school[namespace]'].$dirty &&\
                                form['school[namespace]'].$error.pattern &&\
                               !form['school[namespace]'].$error.required"]
                   | Somente é permitido caracteres minúsculos.
-                span [class="validations"
+                span [class="validations_special"
                       ng-show="form['school[namespace]'].$dirty &&\
                                !form['school[namespace]'].$error.pattern &&\
                                !form['school[namespace]'].$error.required &&\
                                !form['school[namespace]'].$error.minlength&&\
                                !form['school[namespace]'].$error.maxlength&&\
                                form['school[namespace]'].$error.uniqueNamespace"]
-                  | Esse namespace já existe. Escolha outro.
-              p [ng-show="looking"] verificando namespace...
+                  | Esse endereço eletrônico já existe. Escolha outro.
+              p [ng-show="looking" class="verify"] verificando namespace...
           .sep
+          .col-sm-5
+            p.qmagico .QMAGICO.COM.BR
+      .row
+        .form_group
+          p.namespace_info Este endereço será utilizado pelos seus alunos e professores para a participação no tvve.
       = submit_tag 'CONFIRMAR', class: 'button-style'
 hr
 footer

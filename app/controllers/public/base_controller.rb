@@ -42,8 +42,8 @@ class Public::BaseController < ApplicationController
   end
 
   def partner_confirmed
-  #   @school_name = whitelist[:name]
-  #   redirect_to public_base_partner_path unless School.new(whitelist).save
+    # @school_name = whitelist[:name]
+    # redirect_to public_base_partner_path unless School.new(whitelist).save
   end
 
   def check_namespace
@@ -56,7 +56,7 @@ class Public::BaseController < ApplicationController
   private
 
   def whitelist
-    params.require(:school).permit([:name,:category,:state,:city,:cep,:tel,:number_students,:headmaster_name,:headmaster_email,:technical_manager_name,:technical_manager_email,:coordinator_name,:coordinator_email,:contact_name,:contact_email,:stage,:contact_tel,:charge,:token,:confirmed_at])
+    params.require(:school).permit([:name,:category,:state,:city,:cep,:tel,:number_students,:headmaster_name,:headmaster_email,:technical_manager_name,:technical_manager_email,:coordinator_name,:coordinator_email,:contact_name,:contact_email,:stage_first,:stage_second, :stage_report,:contact_tel,:charge,:token,:confirmed_at])
   end
 
 end

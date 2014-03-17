@@ -3,8 +3,8 @@ header.ha-header.ha-header-large
     .row
       h1.col-sm-4
         = image_tag("logo.png")
-      nav.col-sm-8
-        a.head_step0.active href="#step0" O que queremos
+      nav.col-sm-8#top-menu
+        a.head_step0 href="#step0" O que queremos
         a.head_step1 href="#step1" Por que queremos?
         a.head_step2 href="#step2" Professores
         a.head_step3 href="#step3" Alunos
@@ -12,44 +12,45 @@ header.ha-header.ha-header-large
         a.head_step5 href="#step5" FAQ
 .row.step0#step0
   section
-    h2 = word_wrap("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout", line_width: 6)
+    h2 = word_wrap("O relatório tvve é o primeiro relatório de tendências da Vida Virtual em Educação, que trará informações sobre a adoção e uso de recursos digitais na educação regular em instituições públicas e privadas do Brasil.", line_width: 6)
     = image_tag("fig0.png")
-    a href='#step5'
+    a href='#step1'
       = image_tag("arrow1.png", class: 'arrow')
-= image_tag("email_bg.png", class: 'arrow')
 .row.step1#step1
   section.ha-waypoint data-animate-down="ha-header-small" data-animate-up="ha-header-large"
-    h2 = word_wrap("There are many variations of passages of Lorem Ipsum available, but the majority have sufferred alteration in some form, by injecting humour, or randomised words which don't look even slightly belivable.", line_width: 6)
+    h2 = word_wrap("Os processos de aprendizagem não estão mais restritos ao ambiente físico da escola. Alunos aprendem a todo instante, explorando o mundo digital à procura de novos conhecimentos. Queremos revelar a vida virtual que existe hoje nas instituições de ensino do país, as práticas e contextos pedagógicos em que são propostas e a maneira como os alunos as utilizam.", line_width: 6)
     = image_tag("fig1.png")
     a href='#step2'
       = image_tag("arrow1.png", class: 'arrow')
 .row.step2#step2
   section
-    h2 = word_wrap("Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem impsum' will uncover many web sites still in their infancy.", line_width: 6)
+    h2 = word_wrap("Professores e alunos utilizam objetos digitais para complementar e apoiar seus objetivos de ensino-aprendizagem. Revelar essas tendências de utilização favorecem a construção de propostas pedagógicas mais adequadas ao mundo em que vivemos. As informações do relatório de tendência de vida virtual na educação vão inspirar professores de todo Brasil a utilizarem e compartilharem as melhores práticas de uso de objetos digitais na educação.", line_width: 6)
+    h2 = word_wrap("As informações do relatório de tendência de vida digital na educação vão inspirar professores de todo Brasil a utilizarem e compartilharem as melhores práticas de uso de objetos digitais na educação.", line_width: 6)
     = image_tag("fig2.png")
     a href='#step3'
       = image_tag("arrow1.png", class: 'arrow')
 .row.step3#step3
   section
-    h2 = word_wrap("It has survived not only five centuries, but also the leap into eletronic typesetting, remaining essentially unchanged.", line_width: 6)
+    h2 = word_wrap("Alunos são nativos do ambiente digital. Professores e educadores somos estrangeiros neste ambiente.Revelar as tendências de uso de objetos digitais na educação pelo ponto de vista dos nativos digitais colabora para a compreensão das estratégias pedagógicas utilizadas desde aulas tradicionais até a sala de aula invertida.", line_width: 6)
+    h2 = word_wrap("Revelar as tendências de uso de objetos digitais na educação pelo ponto de vista dos nativos digitais colabora para a compreensão das estratégias pedagógicas utilizadas desde aulas tradicionais até a sala de aula invertida.", line_width: 6)
     = image_tag("fig3.png")
     a href='#step4'
       = image_tag("arrow1.png", class: 'arrow')
 .row.step4#step4
-  h1 COMO SUA ESCOLA PODE COLABORAR?
+  h1 Ajude a construir
   .row.strip0
     .container.position_relative
       .col-sm-2
         = image_tag("one.png")
       .col-sm-10.padding_left_60
-        h2 Sua escola aceita o convite
-        p The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+        h2 Sua instituição aceita o convite
+        p Somente escolas convidadas participam desta fase. Enviaremos um convite contendo um código de identificação e instruções. Basta acessar o endereço indicado.
       = image_tag("arrow0.png", class: 'arrow')
   .row.strip1
     .container.position_relative
       .col-sm-9
-        h2.float_align_right Indica os professores
-        p.float_align_right The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+        h2.float_align_right Elege um responsável pelo projeto
+        p.float_align_right Todas as escolas passam por uma breve habilitação técnica e precisam eleger um responsável, que garantirá a participação dos professores e alunos para dar cadência ao estudo.
       .col-sm-3
         = image_tag("two.png")
       = image_tag("arrow0.png", class: 'arrow')
@@ -58,14 +59,14 @@ header.ha-header.ha-header-large
       .col-sm-2
         = image_tag("three.png")
       .col-sm-10.padding_left_60
-        h2 Começa a usar a plataforma
-        p The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+        h2 Começa a usar no dia a dia
+        p A participação é toda na web sem custos ou ônus. Serão liberados recursos para até 3 professores sem limite para o número de alunos.
       = image_tag("arrow0.png", class: 'arrow')
-  .row.strip1
+  .row.strip1.last
     .container.position_relative
       .col-sm-9
         h2.float_align_right Ajuda na educação do brasil
-        p.float_align_right The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+        p.float_align_right Mediremos virtualmente a criação e uso de objetos digitais na web (vídeos, testes, textos) dentro do dia a dia de atividades em sala de aula, lição de casa e/ou sala de aula invertida. Ao fim do período de coleta de dados, a escola receberá um relatório com os indicadores propostos neste estudo, podendo observar sua tendência em relação a média das escolas.
       .col-sm-3
         = image_tag("four.png")
       a href='#step5'
@@ -83,39 +84,39 @@ header.ha-header.ha-header-large
     hr
     p Você ainda não recebeu o convite, mas gostaria de participar?
     = link_to 'QUERO PARTICIPAR', public_base_sign_up_path, class: 'btn-large btn-join'
-.row.companies
-  section
-    .col-sm-6
-      h3 Apoio:
-      nav
-        a.qmagico href="#"
-        a.s href="#"
-        a.mc href="#"
-        br
-        a.form href="#"
-        a.head href="#"
-        a.omo href="#"
-        br
-        a.coke href="#"
-        a.unesco href="#"
-        a.folha href="#"
-    .col-sm-6
-      h3 Empresas Convidadas:
-      nav
-        a.youtube href="#"
-        a.qmagico href="#"
-        a.s href="#"
-        a.mc href="#"
-        br
-        a.lg href="#"
-        a.form href="#"
-        a.head href="#"
-        a.omo href="#"
-        br
-        a.windows href="#"
-        a.coke href="#"
-        a.unesco href="#"
-        a.folha href="#"
+/.row.companies
+/  section
+/    .col-sm-6
+/      h3 Apoio:
+/      nav
+/        a.qmagico href="#"
+/        a.s href="#"
+/        a.mc href="#"
+/        br
+/        a.form href="#"
+/        a.head href="#"
+/        a.omo href="#"
+/        br
+/        a.coke href="#"
+/        a.unesco href="#"
+/        a.folha href="#"
+/    .col-sm-6
+/      h3 Empresas Convidadas:
+/      nav
+/        a.youtube href="#"
+/        a.qmagico href="#"
+/        a.s href="#"
+/        a.mc href="#"
+/        br
+/        a.lg href="#"
+/        a.form href="#"
+/        a.head href="#"
+/        a.omo href="#"
+/        br
+/        a.windows href="#"
+/        a.coke href="#"
+/        a.unesco href="#"
+/        a.folha href="#"
 footer
   .container
     .col-sm-10

@@ -17,11 +17,14 @@ class CreateSchools < ActiveRecord::Migration
       t.string   :coordinator_email
       t.string   :contact_name
       t.string   :contact_email
-      t.string   :stage
+      t.string   :stage_first
+      t.string   :stage_second
+      t.string   :stage_report
       t.string   :contact_tel
       t.string   :charge
       t.string   :token
       t.string   :namespace
+      t.string   :link
       t.datetime :confirmed_at
 
       t.timestamps
